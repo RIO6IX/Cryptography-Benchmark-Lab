@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+
+# Generated datasets (reproducible with: python -m datasets.generate_test_data)
+datasets/data/
+
+# Smoke-test output (not for the report)
+results/quick/
+
+# Encrypted outputs / key files must never be committed
+*.enc
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

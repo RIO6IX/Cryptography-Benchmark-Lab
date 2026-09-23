@@ -1,5 +1,5 @@
 """
-Generate reproducible AES test datasets.
+Generate reproducible test datasets (shared by the AES-GCM and SHA-256 components).
 
     python -m datasets.generate_test_data            # all types and sizes
     python -m datasets.generate_test_data --types BIN
@@ -17,7 +17,7 @@ Data types
 For PDF and JPG, a real file placed at datasets/samples/sample.pdf or
 datasets/samples/sample.jpg is used if present; otherwise a deterministic sample
 is drawn with matplotlib. Truncated files are no longer valid PDFs/JPEGs, which
-does not matter here: AES-GCM treats all input as an opaque byte string.
+does not matter here: AES-GCM and SHA-256 treat all input as an opaque byte string.
 """
 from __future__ import annotations
 

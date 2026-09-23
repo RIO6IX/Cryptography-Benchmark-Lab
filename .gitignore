@@ -13,11 +13,15 @@ datasets/data/
 # Smoke-test output (not for the report)
 results/quick/
 
+# Modified copies from the SHA-256 integrity demo (re-created by sha256_integrity_demo)
+results/integrity_demo/
+
 # Encrypted outputs / key files must never be committed
 *.enc
 *.key
 
 # OS / editor
+~$*
 .DS_Store
 Thumbs.db
 .vscode/

@@ -1,0 +1,35 @@
+hashlib SHA-256 (OpenSSL 3.0.18 30 Sep 2025); default chunk size 65,536 bytes
+Text example: SHA-256("IE3082 Cryptography") = ad413ed06567103d24fa980ffe9709c48ac74f4d7b63230444e83503be6abffd
+
+1. Known-answer tests:
+  "" (empty string)                                PASS
+  "abc" (one block)                                PASS
+  "abcdbcde...nopq" (448 bits, two blocks)         PASS
+  "abcdefgh...nopqrstu" (896 bits)                 PASS
+  1,000,000 x "a"                                  PASS
+  "The quick brown fox jumps over the lazy dog"    PASS
+  hash_text("abc") UTF-8                           PASS
+  HMAC RFC 4231 case 1                             PASS
+  HMAC RFC 4231 case 2                             PASS
+  HMAC differs from SHA-256(key||msg)              PASS
+  1 MB BIN file, 4 KiB read                        PASS
+  1 MB BIN file, 64 KiB (default) read             PASS
+  1 MB BIN file, 1 MiB read                        PASS
+  1 MB BIN file, odd 1,000 B read                  PASS
+  1 MB BIN file, whole file read                   PASS
+  1 MB BIN file, in-memory hash_bytes read         PASS
+  Windows certutil cross-check (1 MB BIN)          PASS
+
+2. Integrity demonstration (1 MB TXT file):
+  Reference digest (manifest.csv): a2373e7284e16bd3be0e002df5bb9128d8df7924aa4e6408c7050dbc4e85975a
+  Original 1MB.txt            a2373e7284e16bd3be0e002df5bb9128d8df7924aa4e6408c7050dbc4e85975a  bits changed   0/256  verification PASS  (expected PASS)
+  Copy with 1 bit flipped     c33cabb2498e6131ae07fa81059d18fdd8f53464b0e2919d1a9ce5339483fc49  bits changed 116/256  verification FAIL  (expected FAIL)
+  Copy with 1 byte changed    ffb4b4d51c1c6cdaa9d6effad6f781891bc31dd480dd060aaf279a034bcbc666  bits changed 117/256  verification FAIL  (expected FAIL)
+  Copy with 1 byte appended   9f347c3f2653da9cf9a6c6f7d1a35484f8e9e3ab8eb521938c2cc29281a3e8ca  bits changed 123/256  verification FAIL  (expected FAIL)
+  digest A (original) != digest B (1 bit flipped): True
+
+3. Avalanche experiment:
+  1000 single-bit flips of the 1 KB BIN file: mean 128.09 bits changed (SD 8.10, min 97, max 160); ideal mean 128, SD 8
+  99.6 % of trials within 128 +/- 24 bits (ideal about 99.7 %)
+
+ALL CHECKS PASSED - CSV files written to C:\Users\user\Downloads\Crypto\C sandu\crypto-assignment\results

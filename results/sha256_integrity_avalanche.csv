@@ -1,0 +1,5 @@
+test,file,bytes,modified_offset,change,sha256,reference_sha256,differing_bits_of_256,verification,expected,as_expected
+Original 1MB.txt,results/integrity_demo/original_1MB.txt,1048576,,unmodified copy,a2373e7284e16bd3be0e002df5bb9128d8df7924aa4e6408c7050dbc4e85975a,a2373e7284e16bd3be0e002df5bb9128d8df7924aa4e6408c7050dbc4e85975a,0,PASS,PASS,yes
+Copy with 1 bit flipped,results/integrity_demo/modified_1bit_1MB.txt,1048576,524288,lowest bit flipped: 0x20 -> 0x21 (' ' -> '!'),c33cabb2498e6131ae07fa81059d18fdd8f53464b0e2919d1a9ce5339483fc49,a2373e7284e16bd3be0e002df5bb9128d8df7924aa4e6408c7050dbc4e85975a,116,FAIL,FAIL,yes
+Copy with 1 byte changed,results/integrity_demo/modified_1byte_1MB.txt,1048576,524288,character replaced: 0x20 -> 0x23 (' ' -> '#'),ffb4b4d51c1c6cdaa9d6effad6f781891bc31dd480dd060aaf279a034bcbc666,a2373e7284e16bd3be0e002df5bb9128d8df7924aa4e6408c7050dbc4e85975a,117,FAIL,FAIL,yes
+Copy with 1 byte appended,results/integrity_demo/modified_append_1MB.txt,1048577,1048576,1 byte (newline) appended,9f347c3f2653da9cf9a6c6f7d1a35484f8e9e3ab8eb521938c2cc29281a3e8ca,a2373e7284e16bd3be0e002df5bb9128d8df7924aa4e6408c7050dbc4e85975a,123,FAIL,FAIL,yes

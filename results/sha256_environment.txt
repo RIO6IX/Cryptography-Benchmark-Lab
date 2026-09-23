@@ -1,0 +1,24 @@
+CPU: Intel(R) Core(TM) i9-14900HX
+Physical cores: 24
+Logical processors: 32
+CPU max frequency (MHz): 2200
+RAM (GB): 31.63
+OS: Windows 11 (build 10.0.22631)
+Python: CPython 3.13.9
+psutil: 7.2.2
+perf_counter resolution (s): 1e-07
+Power: AC power; Power Scheme GUID: 6fecc5ae-f350-48a5-b669-b472cb895ccf  (Turbo)
+hashlib backend: OpenSSL 3.0.18 30 Sep 2025
+SHA extensions (SHA-NI): not detectable from Python - check with Sysinternals Coreinfo (coreinfo64 -f, look for 'SHA')
+File types: ['BIN', 'TXT', 'PDF', 'JPG']
+Input sizes: ['1KB', '100KB', '1MB', '5MB', '10MB', '50MB']
+Measured trials per configuration: 10
+Warm-up runs discarded per configuration: 1
+Default read (chunk) size (bytes): 65536
+Chunk-size experiment file: BIN 50MB
+CPU sampling window (s): 0.25
+CPU measurement: Windows QueryProcessCycleTime / calibrated TSC rate (2.418 GHz); psutil process CPU time also recorded (*_os_pct columns)
+Started: 2026-09-23 21:51:53
+Finished: 2026-09-23 21:53:03
+Benchmark duration (s): 69.3
+Digest verification failures: 0

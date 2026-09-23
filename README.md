@@ -6,6 +6,9 @@ This component implements **AES-128/192/256 in Galois/Counter Mode (AES-GCM)** a
 for the group assignment. It measures time, CPU, memory and throughput across key sizes, input sizes
 and file types. Every number in the report must come from the CSV files that this code produces.
 
+> **SHA-256 / Hashing + Data Testing component** (G.C.I. Sampath, IT23548046) lives in the same project and
+> shares the datasets and measurement helpers. See [README_SHA256.md](README_SHA256.md).
+
 ## Contribution
 
 - Secure AES-GCM implementation (`src/aes_crypto.py`): CSPRNG keys, 96-bit random nonces, nonce-reuse guard,
@@ -22,13 +25,17 @@ and file types. Every number in the report must come from the CSV files that thi
 crypto-assignment/
 ├── src/
 │   ├── __init__.py
-│   └── aes_crypto.py            AES-GCM implementation (no measurement code)
+│   ├── aes_crypto.py            AES-GCM implementation (no measurement code)
+│   └── sha256_hash.py           SHA-256 hashing + integrity (see README_SHA256.md)
 ├── benchmarks/
 │   ├── __init__.py
 │   ├── measure.py               timing / CPU / memory helpers, environment capture
 │   ├── self_test.py             correctness + tamper checks -> correctness_tests.csv
 │   ├── benchmark_aes.py         the benchmark -> aes_raw_trials.csv, aes_summary.csv
-│   └── plot_results.py          graphs from aes_summary.csv -> results/graphs/*.png
+│   ├── plot_results.py          graphs from aes_summary.csv -> results/graphs/*.png
+│   ├── sha256_integrity_demo.py SHA-256 known-answer, integrity and avalanche demo
+│   ├── benchmark_sha256.py      SHA-256 benchmark -> results/sha256_*.csv
+│   └── plot_sha256.py           SHA-256 graphs -> results/graphs/sha256_*.png
 ├── datasets/
 │   ├── __init__.py
 │   ├── generate_test_data.py    reproducible test inputs
@@ -36,7 +43,8 @@ crypto-assignment/
 │   ├── data/                    generated files (git-ignored, ~265 MB)
 │   └── manifest.csv             SHA-256 of every generated input
 ├── tests/
-│   └── test_aes.py              pytest suite
+│   ├── test_aes.py              pytest suite (AES)
+│   └── test_sha256.py           pytest suite (SHA-256)
 ├── results/
 │   ├── aes_raw_trials.csv       one row per trial      (after full benchmark)
 │   ├── aes_summary.csv          statistics per config  (after full benchmark)

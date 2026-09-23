@@ -1,0 +1,18 @@
+test,detail,expected,computed,result
+""""" (empty string)",0 bytes,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,PASS
+"""abc"" (one block)",3 bytes,ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad,ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad,PASS
+"""abcdbcde...nopq"" (448 bits, two blocks)",56 bytes,248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1,248d6a61d20638b8e5c026930c3e6039a33ce45964ff2167f6ecedd419db06c1,PASS
+"""abcdefgh...nopqrstu"" (896 bits)",112 bytes,cf5b16a778af8380036ce59e7b0492370b249b11e8f07a51afac45037afee9d1,cf5b16a778af8380036ce59e7b0492370b249b11e8f07a51afac45037afee9d1,PASS
+"1,000,000 x ""a""",1000000 bytes,cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0,cdc76e5c9914fb9281a1c7e284d73e67f1809a48a497200e046d39ccc7112cd0,PASS
+"""The quick brown fox jumps over the lazy dog""",43 bytes,d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592,d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592,PASS
+"hash_text(""abc"") UTF-8",str input,ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad,ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad,PASS
+HMAC RFC 4231 case 1,"key 20 B, msg 8 B",b0344c61d8db38535ca8afceaf0bf12b881dc200c9833da726e9376c2e32cff7,b0344c61d8db38535ca8afceaf0bf12b881dc200c9833da726e9376c2e32cff7,PASS
+HMAC RFC 4231 case 2,"key 4 B, msg 28 B",5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843,5bdcc146bf60754e6a042426089575c75a003f089d2739839dec58b964ec3843,PASS
+HMAC differs from SHA-256(key||msg),RFC 4231 case 2 inputs,different,689a1a0fa183259e022c4d77a4eb0810a94e9090d132c5f8732ccce2b36e3621,PASS
+"1 MB BIN file, 4 KiB read",must equal manifest digest,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,PASS
+"1 MB BIN file, 64 KiB (default) read",must equal manifest digest,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,PASS
+"1 MB BIN file, 1 MiB read",must equal manifest digest,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,PASS
+"1 MB BIN file, odd 1,000 B read",must equal manifest digest,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,PASS
+"1 MB BIN file, whole file read",must equal manifest digest,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,PASS
+"1 MB BIN file, in-memory hash_bytes read",must equal manifest digest,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,PASS
+Windows certutil cross-check (1 MB BIN),independent implementation,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,PASS

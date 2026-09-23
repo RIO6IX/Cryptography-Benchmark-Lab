@@ -1,0 +1,25 @@
+file_type,input_size,bytes,path,sha256,source
+BIN,1KB,1024,datasets/data/BIN/1KB.bin,8c8002aca0ffea34866013675b9e2681bec8046cfcd4709f7ad00e55525c7edd,"SHAKE-256, fixed seed"
+BIN,100KB,102400,datasets/data/BIN/100KB.bin,4c9ec34908181cb97446cb32e5eb478889390e6abdd6097cce6536bb15a9b287,"SHAKE-256, fixed seed"
+BIN,1MB,1048576,datasets/data/BIN/1MB.bin,f668f5edf1917b701d1aae20da0e0735e1b03ab4acb2cfe417d4915a25e0c201,"SHAKE-256, fixed seed"
+BIN,5MB,5242880,datasets/data/BIN/5MB.bin,f1b46c21340f3b38710a177574ac70c58706651cd809a1b194032dfd8db3147d,"SHAKE-256, fixed seed"
+BIN,10MB,10485760,datasets/data/BIN/10MB.bin,1f17c0787bddd26a339c96514145d0c9c6526d1e8511204a1013743567ae3c1d,"SHAKE-256, fixed seed"
+BIN,50MB,52428800,datasets/data/BIN/50MB.bin,f4a8626f0ebd24cde1cc824980a176d665247d77c81a4f91274ea7e33e1d7532,"SHAKE-256, fixed seed"
+TXT,1KB,1024,datasets/data/TXT/1KB.txt,c64e837255050fe1ee8533adf85ea1507eed7346ec3f755be0b8ec31b8e6505d,repeated text
+TXT,100KB,102400,datasets/data/TXT/100KB.txt,e7941c00e94f09e2778300c83bd03c8a2545374df44688fd4759e4f530a7f9fe,repeated text
+TXT,1MB,1048576,datasets/data/TXT/1MB.txt,a2373e7284e16bd3be0e002df5bb9128d8df7924aa4e6408c7050dbc4e85975a,repeated text
+TXT,5MB,5242880,datasets/data/TXT/5MB.txt,8fbfb99b177b8b4cea95479b0d12ecd12ecc7955cd116ed68902bf3183d37721,repeated text
+TXT,10MB,10485760,datasets/data/TXT/10MB.txt,840998e32432ae86be309547281e3e9ab5e7829e70444284417cdad73f160fa5,repeated text
+TXT,50MB,52428800,datasets/data/TXT/50MB.txt,e893bece34a96e2fee949d4d7d80a1780d971adc7547a583d9f5313ccf21b152,repeated text
+PDF,1KB,1024,datasets/data/PDF/1KB.pdf,e495032f718fc06277f66c3ae12f99f22d013669fa952673aedc5f8f897a0b88,generated with matplotlib
+PDF,100KB,102400,datasets/data/PDF/100KB.pdf,550d4930fd234eab7801a3f60fdc2a5dc02e5a5a500246532fd674747528ebdb,generated with matplotlib
+PDF,1MB,1048576,datasets/data/PDF/1MB.pdf,7a310f0583cac466bcafb0a60e6ee620e4a278ac5341d0f1c563b7ed65b0fa30,generated with matplotlib
+PDF,5MB,5242880,datasets/data/PDF/5MB.pdf,587dbc816afa0bed12d857f10fb4a16c7ea95a13445828518d3a2f2eb325d1ce,generated with matplotlib
+PDF,10MB,10485760,datasets/data/PDF/10MB.pdf,b6cc607c99b65fceef8cb8e959f45746ebe9f3550d3a7a5f29b125af6db58d9c,generated with matplotlib
+PDF,50MB,52428800,datasets/data/PDF/50MB.pdf,1f81d6d89cb6ca13f1e6e003b22b0ec92899aab821d7d67c0e25a3e67cc64688,generated with matplotlib
+JPG,1KB,1024,datasets/data/JPG/1KB.jpg,e319a03abf5a9032f194fc40866e5ed3b5c6a86add18aff7ae8d4f670ccafb71,generated with matplotlib
+JPG,100KB,102400,datasets/data/JPG/100KB.jpg,090b4fc7a4e2137ca5d1d51ef8eceadf35d941c631fc0f77e45875447d8ea72d,generated with matplotlib
+JPG,1MB,1048576,datasets/data/JPG/1MB.jpg,f893f568b7eca5a52611e506722cd6dc540e162566442377cc042a6abf401eb3,generated with matplotlib
+JPG,5MB,5242880,datasets/data/JPG/5MB.jpg,3aa8e8c6db9cbbe2e693f69fcb792e82688c338355e6b3750384b3061187d72b,generated with matplotlib
+JPG,10MB,10485760,datasets/data/JPG/10MB.jpg,c733f5cdaa826f239294eb329cec0954954f55fad01028669c1789420ad5a9ad,generated with matplotlib
+JPG,50MB,52428800,datasets/data/JPG/50MB.jpg,8688782766b6255caeef8d91d32680e199ec14339e23c5d096f683e9f4852060,generated with matplotlib

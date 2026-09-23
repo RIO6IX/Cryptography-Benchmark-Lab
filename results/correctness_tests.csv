@@ -1,0 +1,38 @@
+test,key_size,expected,result
+Known-answer test (McGrew-Viega GCM vector),AES-128,Output matches vector,PASS
+Encrypt-decrypt round trip (4 KB),AES-128,Identical plaintext,PASS
+Empty plaintext round trip,AES-128,Identical (empty) plaintext,PASS
+Ciphertext length = plaintext + 16-byte tag,AES-128,4112 bytes,PASS
+Modified ciphertext (1 bit),AES-128,Rejected (AuthenticationError),PASS
+Modified tag (1 bit),AES-128,Rejected (AuthenticationError),PASS
+Wrong key,AES-128,Rejected (AuthenticationError),PASS
+Wrong nonce,AES-128,Rejected (AuthenticationError),PASS
+Wrong AAD,AES-128,Rejected (AuthenticationError),PASS
+Truncated ciphertext,AES-128,Rejected (AuthenticationError),PASS
+Known-answer test (McGrew-Viega GCM vector),AES-192,Output matches vector,PASS
+Encrypt-decrypt round trip (4 KB),AES-192,Identical plaintext,PASS
+Empty plaintext round trip,AES-192,Identical (empty) plaintext,PASS
+Ciphertext length = plaintext + 16-byte tag,AES-192,4112 bytes,PASS
+Modified ciphertext (1 bit),AES-192,Rejected (AuthenticationError),PASS
+Modified tag (1 bit),AES-192,Rejected (AuthenticationError),PASS
+Wrong key,AES-192,Rejected (AuthenticationError),PASS
+Wrong nonce,AES-192,Rejected (AuthenticationError),PASS
+Wrong AAD,AES-192,Rejected (AuthenticationError),PASS
+Truncated ciphertext,AES-192,Rejected (AuthenticationError),PASS
+Known-answer test (McGrew-Viega GCM vector),AES-256,Output matches vector,PASS
+Encrypt-decrypt round trip (4 KB),AES-256,Identical plaintext,PASS
+Empty plaintext round trip,AES-256,Identical (empty) plaintext,PASS
+Ciphertext length = plaintext + 16-byte tag,AES-256,4112 bytes,PASS
+Modified ciphertext (1 bit),AES-256,Rejected (AuthenticationError),PASS
+Modified tag (1 bit),AES-256,Rejected (AuthenticationError),PASS
+Wrong key,AES-256,Rejected (AuthenticationError),PASS
+Wrong nonce,AES-256,Rejected (AuthenticationError),PASS
+Wrong AAD,AES-256,Rejected (AuthenticationError),PASS
+Truncated ciphertext,AES-256,Rejected (AuthenticationError),PASS
+Invalid key size 0 rejected,-,AESKeySizeError,PASS
+Invalid key size 64 rejected,-,AESKeySizeError,PASS
+Invalid key size 100 rejected,-,AESKeySizeError,PASS
+Invalid key size 512 rejected,-,AESKeySizeError,PASS
+Invalid key size '128' rejected,-,AESKeySizeError,PASS
+Invalid key size True rejected,-,AESKeySizeError,PASS
+"10,000 nonces are unique and 96-bit",-,10000 distinct 12-byte nonces,PASS

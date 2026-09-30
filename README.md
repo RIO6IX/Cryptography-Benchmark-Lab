@@ -12,6 +12,9 @@ and file types. Every number in the report must come from the CSV files that thi
 > **Benchmarking + Integration + Comparative Analysis** (Member 4) runs AES-GCM, SHA-256 and RSA through one common
 > framework and compares them. See [README_BENCHMARK.md](README_BENCHMARK.md).
 
+> **RSA / Asymmetric Cryptography component** implements RSA-OAEP encryption and RSA-PSS signatures at
+> 2048, 3072 and 4096 bits, with correctness tests and benchmark results. See [README_RSA.md](README_RSA.md).
+
 ## Contribution
 
 - Secure AES-GCM implementation (`src/aes_crypto.py`): CSPRNG keys, 96-bit random nonces, nonce-reuse guard,
@@ -29,7 +32,8 @@ crypto-assignment/
 ├── src/
 │   ├── __init__.py
 │   ├── aes_crypto.py            AES-GCM implementation (no measurement code)
-│   └── sha256_hash.py           SHA-256 hashing + integrity (see README_SHA256.md)
+│   ├── sha256_hash.py           SHA-256 hashing + integrity (see README_SHA256.md)
+│   └── rsa_crypto.py            RSA-OAEP encryption + RSA-PSS signatures
 ├── benchmarks/
 │   ├── __init__.py
 │   ├── measure.py               timing / CPU / memory helpers, environment capture
@@ -52,6 +56,7 @@ crypto-assignment/
 ├── tests/
 │   ├── test_aes.py              pytest suite (AES)
 │   ├── test_sha256.py           pytest suite (SHA-256)
+│   ├── test_rsa.py              pytest suite (RSA-OAEP/PSS)
 │   └── test_framework.py        pytest suite (Member 4 framework, adapters, runner, analysis)
 ├── docs/
 │   └── member4_report_draft.md  Member 4 report sections with {{placeholders}} filled from CSVs
@@ -71,6 +76,7 @@ crypto-assignment/
 ├── .gitignore
 ├── README.md
 ├── README_SHA256.md
+├── README_RSA.md
 └── README_BENCHMARK.md          Member 4 documentation
 ```
 

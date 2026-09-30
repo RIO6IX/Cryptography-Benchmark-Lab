@@ -1,5 +1,5 @@
 """
-RSA adapter: exposes the RSA component (Member 2) to the common runner.
+RSA adapter: exposes the RSA contributor's component to the common runner.
 
 RSA itself is NOT implemented here. The adapter looks for the RSA module and
 plugs it in automatically once it exists; until then it reports itself as

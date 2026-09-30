@@ -56,8 +56,9 @@ ENTITY = {
     "SHA-256": ("#eda100", "D", "..."),
     "RSA-2048": ("#e87ba4", "v", "---"),
     "RSA-3072": ("#008300", "P", "+++"),
+    "RSA-4096": ("#4a3aa7", "*", "ooo"),
 }
-FALLBACK = ("#8a8984", "X", "ooo")
+FALLBACK = ("#8a8984", "X", "|||")
 OP_LINE = {"encrypt": "-", "hash": "-", "keygen": "-", "decrypt": "--", "sign": "-.", "verify": ":"}
 PRIMITIVE_COLOR = {"AES-GCM": ENTITY["AES-256"][0], "SHA-256": ENTITY["SHA-256"][0], "RSA": ENTITY["RSA-2048"][0]}
 STEP_HATCH = {"sha256_digest": "", "aes_keygen": "...", "aes_encrypt": "", "rsa_wrap": "",

@@ -9,6 +9,9 @@ and file types. Every number in the report must come from the CSV files that thi
 > **SHA-256 / Hashing + Data Testing component** (G.C.I. Sampath, IT23548046) lives in the same project and
 > shares the datasets and measurement helpers. See [README_SHA256.md](README_SHA256.md).
 
+> **Benchmarking + Integration + Comparative Analysis** (Member 4) runs AES-GCM, SHA-256 and RSA through one common
+> framework and compares them. See [README_BENCHMARK.md](README_BENCHMARK.md).
+
 ## Contribution
 
 - Secure AES-GCM implementation (`src/aes_crypto.py`): CSPRNG keys, 96-bit random nonces, nonce-reuse guard,
@@ -35,7 +38,11 @@ crypto-assignment/
 │   ├── plot_results.py          graphs from aes_summary.csv -> results/graphs/*.png
 │   ├── sha256_integrity_demo.py SHA-256 known-answer, integrity and avalanche demo
 │   ├── benchmark_sha256.py      SHA-256 benchmark -> results/sha256_*.csv
-│   └── plot_sha256.py           SHA-256 graphs -> results/graphs/sha256_*.png
+│   ├── plot_sha256.py           SHA-256 graphs -> results/graphs/sha256_*.png
+│   ├── framework.py             Member 4: common adapter interface, runner, statistics
+│   ├── adapters/                Member 4: aes / sha256 / rsa / hybrid adapters (thin wrappers)
+│   ├── benchmark_all.py         Member 4: unified benchmark -> results/combined_*.csv
+│   └── analyze.py               Member 4: comparison tables, cmp_*.png graphs, report values
 ├── datasets/
 │   ├── __init__.py
 │   ├── generate_test_data.py    reproducible test inputs
@@ -44,18 +51,27 @@ crypto-assignment/
 │   └── manifest.csv             SHA-256 of every generated input
 ├── tests/
 │   ├── test_aes.py              pytest suite (AES)
-│   └── test_sha256.py           pytest suite (SHA-256)
+│   ├── test_sha256.py           pytest suite (SHA-256)
+│   └── test_framework.py        pytest suite (Member 4 framework, adapters, runner, analysis)
+├── docs/
+│   └── member4_report_draft.md  Member 4 report sections with {{placeholders}} filled from CSVs
 ├── results/
 │   ├── aes_raw_trials.csv       one row per trial      (after full benchmark)
 │   ├── aes_summary.csv          statistics per config  (after full benchmark)
 │   ├── correctness_tests.csv
 │   ├── environment.txt
-│   ├── graphs/                  fig1 … fig7 PNG
+│   ├── combined_summary.csv     Member 4: all algorithms, common schema (after benchmark_all)
+│   ├── combined_raw_trials.csv  Member 4: one row per trial and operation
+│   ├── environment_combined.txt Member 4: environment of the combined run
+│   ├── comparative_table.csv    Member 4: from analyze (also stability_summary, hybrid_breakdown, report_values)
+│   ├── graphs/                  fig1 … fig7 PNG, sha256_*.png, cmp_*.png
 │   └── quick/                   smoke-test output (git-ignored, NOT for the report)
 ├── pytest.ini
 ├── requirements.txt
 ├── .gitignore
-└── README.md
+├── README.md
+├── README_SHA256.md
+└── README_BENCHMARK.md          Member 4 documentation
 ```
 
 ## Requirements
@@ -176,3 +192,18 @@ memory does not depend on key size.
 4. Run `generate_test_data`, check that the hashes in `manifest.csv` are unchanged, then run `benchmark_aes`, then `plot_results`.
 5. Keep all four CSV/TXT files and the PNGs together. Do not edit the CSVs by hand.
 6. Optional: repeat on another day and compare. Absolute times differ between machines; the trends should hold.
+
+## Member 4 – Benchmarking + Integration
+
+`benchmarks/benchmark_all.py` runs AES-128/192/256-GCM, SHA-256 and (when Member 2's module is present) RSA through
+one adapter framework, using the same `measure.py` helpers as the AES and SHA-256 benchmarks, and `benchmarks/analyze.py`
+turns `results/combined_summary.csv` into comparison tables, `cmp_*.png` graphs and the values for the report draft.
+
+```powershell
+python -m benchmarks.benchmark_all --quick       # smoke test -> results/quick/ (not for the report)
+python -m benchmarks.benchmark_all               # full run   -> results/combined_*.csv
+python -m benchmarks.analyze                     # tables, graphs, results/member4_report_filled.md
+```
+
+Scenarios, CLI options, output schema, the RSA adapter contract and how to add an algorithm:
+[README_BENCHMARK.md](README_BENCHMARK.md).
